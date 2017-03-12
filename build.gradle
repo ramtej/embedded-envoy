@@ -1,0 +1,36 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+
+sourceCompatibility = 1.7
+version = '0.1'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2.2'
+    // compile group: 'de.flapdoodle.embed', name: 'de.flapdoodle.embed.process', version: '1.50.1'
+    compile group: 'de.flapdoodle.embed', name: 'de.flapdoodle.embed.process', version: '2.0.1'
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
