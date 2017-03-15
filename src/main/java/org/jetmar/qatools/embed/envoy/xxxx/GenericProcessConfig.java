@@ -21,24 +21,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jetmar.qatools.embed.envoy.generic;
+package org.jetmar.qatools.embed.envoy.xxxx;
 
-import de.flapdoodle.embed.process.config.ISupportConfig;
+import de.flapdoodle.embed.process.config.ExecutableProcessConfig;
+import de.flapdoodle.embed.process.distribution.IVersion;
 
-public class GenericSupportConfig implements ISupportConfig {
+public class GenericProcessConfig extends ExecutableProcessConfig {
 
-	@Override
-	public String getName() {
-		return "generic";
-	}
-
-	@Override
-	public String getSupportUrl() {
-		return "https://github.com/flapdoodle-oss/de.flapdoodle.embed.process";
-	}
-	
-	@Override
-	public String messageOnException(Class<?> context, Exception exception) {
-		return null;
+	public GenericProcessConfig(IVersion version) {
+		super(version,new GenericSupportConfig());
 	}
 }

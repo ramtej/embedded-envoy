@@ -21,40 +21,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jetmar.qatools.embed.envoy.generic;
+package org.jetmar.qatools.embed.envoy;
+
+
 
 import de.flapdoodle.embed.process.config.IRuntimeConfig;
 import de.flapdoodle.embed.process.distribution.Distribution;
 import de.flapdoodle.embed.process.extract.IExtractedFileSet;
-import de.flapdoodle.embed.process.runtime.AbstractProcess;
+import de.flapdoodle.embed.process.runtime.Executable;
+import org.jetmar.qatools.embed.envoy.xxxx.GenericProcess;
+import org.jetmar.qatools.embed.envoy.xxxx.GenericProcessConfig;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-public class GenericProcess extends AbstractProcess<GenericProcessConfig, GenericExecuteable, GenericProcess> {
+public class EnvoyExecuteable extends Executable<GenericProcessConfig, GenericProcess> {
 
-	public GenericProcess(Distribution distribution, GenericProcessConfig config, IRuntimeConfig runtime, GenericExecuteable genericExecuteable) throws IOException {
-		super(distribution,config,runtime,genericExecuteable);
+	public EnvoyExecuteable(Distribution distribution, GenericProcessConfig config, IRuntimeConfig runtimeConfig,
+                            IExtractedFileSet executable) {
+		super(distribution, config, runtimeConfig, executable);
 	}
 
 	@Override
-	public void stopInternal() {
-		stopProcess();
+	protected GenericProcess start(Distribution distribution, GenericProcessConfig config, IRuntimeConfig runtime)
+			throws IOException {
+		// JJ TODO return new GenericProcess(distribution,config,runtime,this);
+		return null;
 	}
 	
-	@Override
-	protected void cleanupInternal() {
-		
-	}
-
-	@Override
-	protected List<String> getCommandLine(Distribution distribution, GenericProcessConfig config, IExtractedFileSet files)
-			throws IOException {
-		// TODO how to config this?
-		ArrayList<String> ret = new ArrayList<String>();
-		ret.add(files.executable().getAbsolutePath());
-		ret.add("--help");
-		return ret;
-	}
 }

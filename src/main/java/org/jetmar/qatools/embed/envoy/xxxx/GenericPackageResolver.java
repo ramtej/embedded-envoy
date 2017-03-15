@@ -21,7 +21,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jetmar.qatools.embed.envoy.generic;
+package org.jetmar.qatools.embed.envoy.xxxx;
 
 import de.flapdoodle.embed.process.config.store.FileSet;
 import de.flapdoodle.embed.process.config.store.FileType;
