@@ -17,9 +17,9 @@ public class DownloadConfigBuilder extends de.flapdoodle.embed.process.config.st
     public DownloadConfigBuilder defaultsForCommand(Command command) {
         fileNaming().setDefault(new UUIDTempNaming());
         // I've found the only open and easy to use cross platform binaries
-        downloadPath().setDefault(new DownloadPath("http://get.enterprisedb.com/postgresql/"));
+        downloadPath().setDefault(new DownloadPath("https://github.com/ramtej/distributions-envoy/raw/master/downloads/"));
         packageResolver().setDefault(new PackagePaths(command, SubdirTempDir.defaultInstance()));
-        artifactStorePath().setDefault(new UserHome(".embedpostgresql"));
+        artifactStorePath().setDefault(new UserHome(".embedenvoy"));
         downloadPrefix().setDefault(new DownloadPrefix("posgresql-download"));
         userAgent().setDefault(new UserAgent("Mozilla/5.0 (compatible; Embedded postgres; +https://github.com/yandex-qatools)"));
         progressListener().setDefault(new StandardConsoleProgressListener() {

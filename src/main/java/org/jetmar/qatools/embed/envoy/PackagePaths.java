@@ -96,7 +96,7 @@ public class PackagePaths implements IPackageResolver {
         String splatform;
         switch (distribution.getPlatform()) {
             case Linux:
-                splatform = "linux";
+                splatform = "linux-x86"; // JJ TODO - add CPU Platform
                 break;
             case Windows:
                 splatform = "windows";
@@ -115,6 +115,7 @@ public class PackagePaths implements IPackageResolver {
                 switch (distribution.getPlatform()) {
                     case Windows:
                     case Linux:
+                        bitsize = "_32"; // JJ TODO follow naming convensions
                     case OS_X:
                         break;
                     default:
@@ -126,8 +127,9 @@ public class PackagePaths implements IPackageResolver {
             case B64:
                 switch (distribution.getPlatform()) {
                     case Linux:
+                        bitsize = "_64"; // JJ TODO follow naming convensions
                     case Windows:
-                        bitsize = "-x64";
+                        bitsize = "_64";
                         break;
                     case OS_X:
                         break;
@@ -141,6 +143,6 @@ public class PackagePaths implements IPackageResolver {
                 throw new IllegalArgumentException("Unknown BitSize " + distribution.getBitsize());
         }
 
-        return "postgresql-" + sversion + "-" + splatform + bitsize + "-binaries" + "." + sarchiveType;
+        return "envoy-" + sversion + "-" + splatform + bitsize + "-binaries" + "." + sarchiveType;
     }
 }

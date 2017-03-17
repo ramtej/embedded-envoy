@@ -8,7 +8,7 @@ import de.flapdoodle.embed.process.distribution.IVersion;
 public enum Version implements IVersion {
 
     V1_2_0("1.2.0"),
-    V1_1_0("1.2.0"),
+    V1_1_0("1.1.0"),
     ;
 
 

@@ -25,10 +25,12 @@ package org.jetmar.qatools.embed.envoy.xxxx;
 
 import de.flapdoodle.embed.process.config.ExecutableProcessConfig;
 import de.flapdoodle.embed.process.distribution.IVersion;
+import de.flapdoodle.embed.process.config.*;
 
 public class GenericProcessConfig extends ExecutableProcessConfig {
 
-	public GenericProcessConfig(IVersion version) {
-		super(version,new GenericSupportConfig());
+	public GenericProcessConfig(IVersion version, ISupportConfig supportConfig) {
+		// super(version,new GenericSupportConfig());
+		super(version, supportConfig); // ,new GenericSupportConfig());
 	}
 }
