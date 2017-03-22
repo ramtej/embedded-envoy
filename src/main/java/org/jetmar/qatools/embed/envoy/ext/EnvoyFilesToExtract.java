@@ -83,7 +83,8 @@ public class EnvoyFilesToExtract extends FilesToExtract {
                             }
                         }
                         // hack to mark binaries as executable
-                        if ((entry.getName().matches("pgsql/bin/.+"))) {
+                        // if ((entry.getName().matches("pgsql/bin/.+"))) {
+                        if ((entry.getName().matches("envoy-1.2.0-linux-x86_64/bin/.+"))) {
                             outputFile.setExecutable(true);
                         }
                     }

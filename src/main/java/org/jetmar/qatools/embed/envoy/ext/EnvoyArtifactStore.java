@@ -60,11 +60,13 @@ public class EnvoyArtifactStore extends ArtifactStore {
 
     @Override
     public void removeFileSet(Distribution distribution, IExtractedFileSet all) {
+        /** JJ TODO
         try {
             super.removeFileSet(distribution, all);
         } catch (IllegalArgumentException e) {
             System.err.println("Failed to remove file set: " + e.getMessage());//NOSONAR
         }
+         */
     }
 
     public IDownloadConfig getDownloadConfig() {

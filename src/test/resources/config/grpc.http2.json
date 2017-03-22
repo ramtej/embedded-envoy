@@ -1,0 +1,17 @@
+"clusters": [
+{
+"name": "local_service",
+"connect_timeout_ms": 250,
+"type": "static",
+"lb_type": "least_request",
+"features": "http2",
+"hosts": [
+{
+"url": "tcp://127.0.0.1:50050"
+},
+{
+"url": "tcp://127.0.0.1:50051"
+}
+]
+}
+]

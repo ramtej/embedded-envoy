@@ -27,6 +27,7 @@ public class TestDownloads extends TestCase {
 
         for (BitSize b : BitSize.values()) {
                 for (IVersion version : Version.Main.values()) {
+                    System.out.println("-- " + version);
                     Distribution distribution = new Distribution(version, p, b);
                     assertTrue("Distribution: " + distribution, artifactStore.checkDistribution(distribution));
                 }

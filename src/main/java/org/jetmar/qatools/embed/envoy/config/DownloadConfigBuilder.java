@@ -20,7 +20,7 @@ public class DownloadConfigBuilder extends de.flapdoodle.embed.process.config.st
         downloadPath().setDefault(new DownloadPath("https://github.com/ramtej/distributions-envoy/raw/master/downloads/"));
         packageResolver().setDefault(new PackagePaths(command, SubdirTempDir.defaultInstance()));
         artifactStorePath().setDefault(new UserHome(".embedenvoy"));
-        downloadPrefix().setDefault(new DownloadPrefix("posgresql-download"));
+        downloadPrefix().setDefault(new DownloadPrefix("envoy-download"));
         userAgent().setDefault(new UserAgent("Mozilla/5.0 (compatible; Embedded postgres; +https://github.com/yandex-qatools)"));
         progressListener().setDefault(new StandardConsoleProgressListener() {
             @Override
