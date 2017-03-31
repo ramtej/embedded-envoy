@@ -85,15 +85,14 @@ public class TestExampleReadMeCode {
 				.build()
 				.build();
 
-
 		GenericStarter starter = new GenericStarter(config);
 
 		GenericExecuteable executable = starter.prepare(new GenericProcessConfig(version, null));
 
 		GenericProcess process = executable.start();
 
-		process.stop();
+		// process.stop();
 
-		executable.stop();
+		// executable.stop();
 	}
 }

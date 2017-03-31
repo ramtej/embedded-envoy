@@ -17,7 +17,11 @@ public class RuntimeConfigBuilder extends de.flapdoodle.embed.process.config.Run
     public RuntimeConfigBuilder defaults(Command command) {
         processOutput().setDefault(ProcessOutput.getDefaultInstance(command.commandName()));
         commandLinePostProcessor().setDefault(new ICommandLinePostProcessor.Noop());
-        artifactStore().setDefault(storeBuilder().defaults(command).build());
+        artifactStore().setDefault(storeBuilder().defaults(command)
+                .build());
+        // JJ TODO
+        processOutput().overwriteDefault(EnvoyProcessOutputConfig.getDefaultInstance(command)); // .getInstance(command, logger));
+
         return this;
     }
 

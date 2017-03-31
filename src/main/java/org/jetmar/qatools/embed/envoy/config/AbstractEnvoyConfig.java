@@ -84,7 +84,7 @@ public abstract class AbstractEnvoyConfig<C extends AbstractEnvoyConfig> extends
      * Example.<br>
      * to support german umlauts you would add here this additional arguments.<br/>
      * <pre>
-     * getAdditionalInitDbParams().addAll(
+     * getAdditionalParams().addAll(
      *      java.util.Arrays.asList(
      *          "-E", "'UTF-8'",
      *          "--lc-collate='de_DE.UTF-8'",
@@ -95,7 +95,7 @@ public abstract class AbstractEnvoyConfig<C extends AbstractEnvoyConfig> extends
      * @return The list of additional parameters for the {@code initdb} executable.<br/>
      * Not {@code null}.<br/>
      */
-    public List<String> getAdditionalInitDbParams() {
+    public List<String> getAdditionalParams() {
         return additionalInitDbParams;
     }
 

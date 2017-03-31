@@ -1,7 +1,7 @@
 package org.jetmar.qatools.embed.envoy.xxxx;
 
 import de.flapdoodle.embed.process.config.IRuntimeConfig;
-import de.flapdoodle.embed.process.io.progress.LoggingProgressListener;
+import de.flapdoodle.embed.process.config.io.ProcessOutput;
 import org.jetmar.qatools.embed.envoy.Command;
 import org.jetmar.qatools.embed.envoy.EnvoyExecutable;
 import org.jetmar.qatools.embed.envoy.EnvoyProcess;
@@ -12,11 +12,9 @@ import org.jetmar.qatools.embed.envoy.config.EnvoyConfig;
 import org.jetmar.qatools.embed.envoy.config.RuntimeConfigBuilder;
 import org.jetmar.qatools.embed.envoy.distribution.Version;
 import org.jetmar.qatools.embed.envoy.ext.ArtifactStoreBuilder;
-import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.LoggerFactory;
 
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static java.util.Arrays.asList;
@@ -53,7 +51,7 @@ public class TestEnvoyProcess {
         final EnvoyConfig config = new EnvoyConfig(PRODUCTION, new AbstractEnvoyConfig.Net("localhost", findFreePort()),
                 new AbstractEnvoyConfig.Storage("test"), new AbstractEnvoyConfig.Timeout(),
                 new AbstractEnvoyConfig.Credentials("user", "password"));
-        config.getAdditionalInitDbParams().addAll(asList(
+        config.getAdditionalParams().addAll(asList(
                 "-E", "SQL_ASCII",
                 "--locale=C",
                 "--lc-collate=C",
@@ -75,7 +73,9 @@ public class TestEnvoyProcess {
                         .download(new DownloadConfigBuilder()
                                 .defaultsForCommand(Command.Envoy).build()
                         )
-                ).build();
+                )
+                .processOutput(ProcessOutput.getDefaultInstance("name"))
+                .build();
 
         EnvoyStarter<EnvoyExecutable, EnvoyProcess> runtime = EnvoyStarter.getInstance(runtimeConfig);
         System.out.println(runtime);
@@ -83,7 +83,7 @@ public class TestEnvoyProcess {
         final EnvoyConfig config = new EnvoyConfig(PRODUCTION, new AbstractEnvoyConfig.Net("localhost", findFreePort()),
                 new AbstractEnvoyConfig.Storage("test"), new AbstractEnvoyConfig.Timeout(),
                 new AbstractEnvoyConfig.Credentials("user", "password"));
-        config.getAdditionalInitDbParams().addAll(asList(
+        config.getAdditionalParams().addAll(asList(
                 "-E", "SQL_ASCII",
                 "--locale=C",
                 "--lc-collate=C",
@@ -111,7 +111,7 @@ public class TestEnvoyProcess {
                 "test-db")).start();
 
         LOG.info("Stopping postgres");
-        // process.stop();
+        process.stop();
     }
 
 

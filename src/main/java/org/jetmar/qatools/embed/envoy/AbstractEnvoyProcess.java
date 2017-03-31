@@ -39,11 +39,12 @@ public abstract class AbstractEnvoyProcess <E extends Executable<EnvoyConfig, P>
 
     @Override
     protected void stopInternal() {
-
+        System.out.println("stopInternal");
     }
 
     @Override
     protected void cleanupInternal() {
+        System.out.println("cleanupInternal");
 
     }
 

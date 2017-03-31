@@ -54,7 +54,9 @@ public class GenericProcess extends AbstractProcess<GenericProcessConfig, Generi
 		// TODO how to config this?
 		ArrayList<String> ret = new ArrayList<String>();
 		ret.add(files.executable().getAbsolutePath());
-		ret.add("--help");
+		// ret.add("--help");
+		ret.add("-c /home/jj/projects/dekrefa/embedded-envoy/src/test/resources/config/service-envoy-v1.json");
+		ret.add("--log-level trace");
 		return ret;
 	}
 }

@@ -42,8 +42,12 @@ public class EnvoyStarter <E extends AbstractEnvoyExecutable<EnvoyConfig, P>, P 
                 "started", new HashSet<>(singletonList("failed")),
                 new Slf4jStreamProcessor(getLogger("envoy"), Slf4jLevel.TRACE));
         return new RuntimeConfigBuilder()
-                .defaults(cmd)
-                .processOutput(new ProcessOutput(logWatch, logWatch, logWatch)).build();
+                // .defaultsWithLogger(cmd, getLogger(EnvoyProcess.class) )
+                // .defaults(cmd)
+                // .processOutput(new ProcessOutput(logWatch, logWatch, logWatch))
+                // .processOutput(ProcessOutput.getDefaultInstance("test"))
+
+                .build();
     }
 
     public static <E extends AbstractEnvoyExecutable<EnvoyConfig, P>, P extends AbstractEnvoyProcess<E, P>>
